@@ -1,0 +1,142 @@
+================================================================================
+                    🌿 PARADISE NURSERY — USER & RUN GUIDE 🌿
+================================================================================
+
+A modern, responsive e-commerce web application for discovering, exploring,
+and purchasing curated indoor houseplants. Built with React 19 and Vite.
+
+--------------------------------------------------------------------------------
+1. SYSTEM PREREQUISITES
+--------------------------------------------------------------------------------
+- Node.js: Version 18.0.0 or newer (Run `node -v` to check)
+- npm: Version 9.0.0 or newer (Run `npm -v` to check)
+
+--------------------------------------------------------------------------------
+2. HOW TO INSTALL & RUN LOCALLY
+--------------------------------------------------------------------------------
+
+Step 1: Open your terminal in the project directory:
+   cd v:\Projects\ParadiseNursery-master
+
+Step 2: Install dependencies (if running for the first time):
+   npm install
+
+Step 3: Start the local development server:
+   npm run dev
+
+Step 4: Open your browser and navigate to:
+   http://localhost:5173/
+
+   (If port 5173 is busy, Vite will automatically use http://localhost:5174/
+    or display the exact URL in your terminal output)
+
+--------------------------------------------------------------------------------
+3. PRODUCTION BUILD & PREVIEW
+--------------------------------------------------------------------------------
+
+To create an optimized production bundle:
+   npm run build
+
+To preview the built production site locally:
+   npm run preview
+
+To run the linter and verify code cleanliness:
+   npm run lint
+
+--------------------------------------------------------------------------------
+4. HOW TO USE THE WEB APPLICATION
+--------------------------------------------------------------------------------
+
+🌿 1. EXPLORING HOUSEPLANTS
+   - Go to the "Plants" tab (http://localhost:5173/#/products).
+   - Use the live search bar to search by name (e.g., "Tulsi", "Lavender"),
+     benefits (e.g., "sleep", "oxygen"), or botanical names.
+   - Click category filter pills:
+     * All
+     * Aromatic Plants
+     * Medicinal Plants
+     * Air Purifying Plants
+     * Low Maintenance
+   - Use the secondary filters:
+     * "🐾 Pet Friendly Only" checkbox to filter non-toxic plants.
+     * "Care" dropdown (All Levels, Easy Care, Moderate Care).
+     * "Sort" dropdown (Featured, Price: Low to High, Price: High to Low,
+       Highest Rated, Alphabetical A-Z).
+
+🌿 2. PLANT QUICK VIEW & DETAILS
+   - Hover over any plant card and click "🔍 Quick View" (or click the card).
+   - View high-resolution botanical photography, care matrix (Light, Water,
+     Difficulty, Temperature), pet safety ratings, dimensions, and customer reviews.
+   - Adjust quantities directly and click "Add to Cart".
+
+🌿 3. WISHLIST / FAVORITES
+   - Click the heart icon (🤍 / ❤️) on any plant card or modal to save it.
+   - Click the heart button in the top navbar to open your Wishlist Drawer.
+   - Easily move plants from your wishlist directly into your cart.
+
+🌿 4. INTERACTIVE PLANT MATCHER QUIZ
+   - Click "✨ Plant Matcher" in the navbar or on the landing page banner.
+   - Answer 3 quick lifestyle questions:
+     1. Room sunlight conditions (Direct Sun, Indirect, Low Light).
+     2. Pet safety requirements (Cats/dogs at home).
+     3. Watering routine (Low-maintenance vs. weekly care).
+   - Get instant personalized plant recommendations with 1-click Add to Cart!
+
+🌿 5. PLANT DOCTOR & CARE GUIDE
+   - Click "📖 Care Guide" in the top navbar or footer.
+   - Read essential guidelines on the soil finger test, sunlight definitions,
+     drainage & repotting intervals, and non-toxic pet varieties.
+
+🌿 6. CART, COUPONS & MULTI-STEP CHECKOUT
+   - Click "🛒 Cart" in the navbar to open your cart.
+   - Track your progress on the "Free Delivery Meter" (Unlocks at ₹ 25.00).
+   - Apply discount codes in the promo box:
+     * WELCOME10  -> 10% off your entire order
+     * GREEN20    -> ₹ 5.00 flat discount
+     * FREESHIP   -> Free delivery on any order
+   - Click "Proceed to Checkout":
+     * Step 1: Enter your delivery address, phone, email, and preferred time slot.
+     * Step 2: Choose your payment method (Instant UPI, Credit/Debit Card, or COD).
+     * Step 3: Watch your order process securely.
+     * Step 4: View and print your itemized receipt with unique Order ID (PN-XXXXXX).
+
+🌿 7. DARK / LIGHT MODE
+   - Click the sun/moon button (☀️ / 🌙) in the top navbar.
+   - Smoothly switches the color palette, and your preference is saved
+     automatically for future visits.
+
+--------------------------------------------------------------------------------
+5. PROJECT STRUCTURE SUMMARY
+--------------------------------------------------------------------------------
+ParadiseNursery-master/
+├── public/
+│   └── assets/             # Static plant photographs & SVG icons
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx          # Header with theme toggle, wishlist & cart badges
+│   │   ├── HeroSection.jsx     # Landing hero with photography & trust badges
+│   │   ├── ProductCard.jsx     # Plant card with inline cart stepper & badges
+│   │   ├── CartItem.jsx        # Cart item row with quantity controls
+│   │   ├── PlantDetailModal.jsx# Quick-view modal with botanical care matrix
+│   │   ├── PlantQuizModal.jsx  # Interactive 3-step plant matcher quiz
+│   │   ├── CareGuideModal.jsx  # Educational plant doctor & care guide
+│   │   ├── WishlistDrawer.jsx  # Slide-out drawer for favorited plants
+│   │   ├── Toast.jsx           # Floating notification stack
+│   │   └── Footer.jsx          # Newsletter form, quick links, and guarantees
+│   ├── data/
+│   │   ├── products.js         # 12 curated plants with botanical metadata
+│   │   └── constants.js        # Shipping thresholds & promo code definitions
+│   ├── pages/
+│   │   ├── LandingPage.jsx     # Home page with highlights & reviews
+│   │   ├── ProductsPage.jsx    # Catalog page with search, filters & sort
+│   │   └── CartPage.jsx        # Cart with promo codes & multi-step checkout
+│   ├── CartContext.jsx         # Global state (cart, wishlist, theme, toasts)
+│   ├── index.css               # Complete responsive design system & dark mode
+│   ├── App.jsx                 # App root & hash routing
+│   └── main.jsx                # React 19 entry point
+├── index.html                  # HTML entry with Open Graph & SEO meta tags
+├── vite.config.js              # Vite configuration
+├── eslint.config.js            # ESLint 9 configuration
+├── package.json                # Project dependencies and npm scripts
+└── run.txt                     # This user guide
+================================================================================

@@ -5,8 +5,13 @@ function currency(n) {
 }
 
 export default function CartItem({ product, qty }) {
-  const { dispatch } = useCart();
+  const { dispatch, showToast } = useCart();
   const subtotal = product.price * qty;
+
+  const handleRemoveAll = () => {
+    dispatch({ type: 'REMOVE_ALL', id: product.id });
+    showToast(`Removed ${product.name} from cart`, 'info');
+  };
 
   return (
     <div className="cart-item">
@@ -16,10 +21,16 @@ export default function CartItem({ product, qty }) {
         alt={product.name}
       />
 
-      <div>
-        <div className="cart-item__name">{product.name}</div>
-        <div className="cart-item__price">Unit: {currency(product.price)}</div>
-        <div className="cart-item__subtotal">Subtotal: {currency(subtotal)}</div>
+      <div className="cart-item__details">
+        <div className="cart-item__title-row">
+          <h4 className="cart-item__name">{product.name}</h4>
+          <span className="cart-item__cat-badge">{product.category}</span>
+        </div>
+        <div className="cart-item__scientific">{product.scientificName}</div>
+        <div className="cart-item__prices">
+          <span className="cart-item__unit-price">Unit: {currency(product.price)}</span>
+          <span className="cart-item__subtotal-tag">Subtotal: <strong>{currency(subtotal)}</strong></span>
+        </div>
       </div>
 
       <div className="cart-item__controls">
@@ -42,10 +53,12 @@ export default function CartItem({ product, qty }) {
         </div>
 
         <button
-          className="btn btn--danger btn--sm"
-          onClick={() => dispatch({ type: 'REMOVE_ALL', id: product.id })}
+          className="cart-item__delete-btn"
+          onClick={handleRemoveAll}
+          title="Remove from cart"
+          aria-label={`Remove ${product.name} from cart`}
         >
-          Remove
+          🗑️ Remove
         </button>
       </div>
     </div>
